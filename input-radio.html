@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+
+    class MyRadioButton extends HTMLInputElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.setAttribute('type', 'radio');
+
+        this.addEventListener('change', (evt) => {
+          console.log('CHANGED!', this.value)
+        })
+      }
+    }
+    
+    window.customElements.define('my-radio', MyRadioButton, {extends: 'input'});
+    
+    </script>
+
+</head>
+<body>
+  
+  <input is="my-radio" value="true" name="radiobutton">
+  <input is="my-radio" value="false" name="radiobutton">
+
+  <input type="radio">test
+</body>
+
+</html>
